@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/lib/javafx-swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/javafx.base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/javafx.web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/javafx.fxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/javafx.controls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/mysql-connector-java-8.0.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/javafx.graphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/lib/javafx.swing.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
