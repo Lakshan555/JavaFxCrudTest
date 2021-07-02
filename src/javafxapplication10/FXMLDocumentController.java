@@ -58,8 +58,12 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-         if(event.getSource() == btnInsert){
+           if(event.getSource() == btnInsert){
             insertRecord();
+        }else if (event.getSource() == btnUpdate){
+            updateRecord();
+        }else if(event.getSource() == btnDelete){
+            deleteButton();
         }
     }
     
@@ -115,9 +119,24 @@ public class FXMLDocumentController implements Initializable {
         tvBooks.setItems(list);
     }
     
+    //insert
+    
       private void insertRecord(){
         String query = "INSERT INTO books VALUES (" + tfId.getText() + ",'" + tfTitel.getText() + "','" + tfAuthor.getText() + "',"
                 + tfYear.getText() + "," + tfPages.getText() + ")";
+        executeQuery(query);
+        showBooks();
+    }
+      
+      //update
+      private void updateRecord(){
+        String query = "Update  books SET titel = '" + tfTitel.getText() + "', author = '" + tfAuthor.getText() + "', year = " +
+                tfYear.getText() + ", pages = " + tfPages.getText() + " where id = " + tfId.getText() + "";
+        executeQuery(query);
+        showBooks();
+    }
+     private void deleteButton(){
+        String query = "DELETE FROM books WHERE id =" + tfId.getText() + "";
         executeQuery(query);
         showBooks();
     }

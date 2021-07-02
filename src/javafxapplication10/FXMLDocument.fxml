@@ -59,7 +59,7 @@
          </columns>
       </TableView>
       <Button fx:id="btnInsert" layoutX="55.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="86.0" text="Inset" />
-      <Button fx:id="btnUpdate" layoutX="158.0" layoutY="297.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="86.0" text="Update" />
-      <Button fx:id="btnDelete" layoutX="263.0" layoutY="297.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="86.0" text="Delete" />
+      <Button fx:id="btnUpdate" layoutX="158.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="86.0" text="Update" />
+      <Button fx:id="btnDelete" layoutX="263.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="34.0" prefWidth="86.0" text="Delete" />
    </children>
 </AnchorPane>
