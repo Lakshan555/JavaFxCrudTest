@@ -26,7 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class FXMLDocumentController implements Initializable {
     
-    private Label label;
+    
     @FXML
     private TextField tfId;
     @FXML
@@ -56,21 +56,24 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button btnDelete;
     
+    @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+         if(event.getSource() == btnInsert){
+            insertRecord();
+        }
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        showBooks();
     }    
     
-    public Connection getConnectection(){
+    public Connection getConnection(){
         Connection conn;
         
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root","");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/libaray", "root","");
             return conn;
         } catch (Exception e) {
             System.out.println("Error" + e.getMessage());
@@ -80,7 +83,7 @@ public class FXMLDocumentController implements Initializable {
     
     public ObservableList<Books>getBookList(){
         ObservableList<Books> bookList = FXCollections.observableArrayList();
-        Connection conn = getConnectection();
+        Connection conn = getConnection();
         String qurey = "SELECT * FROM books";
         Statement st;
         ResultSet rs;
@@ -109,6 +112,24 @@ public class FXMLDocumentController implements Initializable {
         colYear.setCellValueFactory(new PropertyValueFactory<Books, Integer>("year"));
         colPages.setCellValueFactory(new PropertyValueFactory<Books, Integer>("pages"));
         
+        tvBooks.setItems(list);
     }
     
+      private void insertRecord(){
+        String query = "INSERT INTO books VALUES (" + tfId.getText() + ",'" + tfTitel.getText() + "','" + tfAuthor.getText() + "',"
+                + tfYear.getText() + "," + tfPages.getText() + ")";
+        executeQuery(query);
+        showBooks();
+    }
+
+    private void executeQuery(String query) {
+        Connection conn = getConnection();
+        Statement st;
+        try{
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
 }
