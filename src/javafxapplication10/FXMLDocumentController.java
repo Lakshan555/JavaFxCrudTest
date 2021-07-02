@@ -19,6 +19,7 @@ import java.sql.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -150,5 +151,21 @@ public class FXMLDocumentController implements Initializable {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    @FXML
+    private void handleMouseAction(MouseEvent event) {
+       Books book =  tvBooks.getSelectionModel().getSelectedItem();
+//       System.out.println("id" + books.getId());
+//       System.out.println("titel" + books.getTitel());
+//       System.out.println("author" + books.getAuthor());
+
+         tfId.setText("" +book.getId());
+         tfTitel.setText(book.getTitel());
+         tfAuthor.setText(book.getAuthor());
+         tfYear.setText("" +book.getYear());
+         tfPages.setText("" +book.getPages());
+        
+      
     }
 }
